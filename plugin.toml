@@ -1,0 +1,55 @@
+id         = "dealenx/uptimekit-status"
+name       = "UptimeKit Status"
+version    = "1.0.0"
+plugin_api = 26
+author     = "dealenx"
+license    = "MIT"
+icon       = "activity"
+description = "UptimeKit status page summary in the bar — components, incidents and maintenance from the public summary.json (no API key). Click opens the status page."
+tags       = ["status", "monitoring"]
+
+[[widget]]
+id    = "ukit"
+entry = "widget.luau"
+
+  [[widget.setting]]
+  key     = "base_url"
+  type    = "string"
+  label_key = "settings.base_url.label"
+  default = ""
+
+  [[widget.setting]]
+  key     = "status_page_slug"
+  type    = "string"
+  label_key = "settings.status_page_slug.label"
+  description_key = "settings.status_page_slug.description"
+  default = ""
+
+  [[widget.setting]]
+  key     = "interval_sec"
+  type    = "int"
+  label_key = "settings.interval_sec.label"
+  default = 30
+  min     = 10
+  max     = 3600
+
+  [[widget.setting]]
+  key     = "open_url_on_click"
+  type    = "bool"
+  label_key = "settings.open_url_on_click.label"
+    default = true
+
+  [[widget.setting]]
+  key     = "compact"
+  type    = "bool"
+  label_key = "settings.compact.label"
+  default = false
+  advanced = true
+
+[[panel]]
+id         = "detail"
+entry      = "panel.luau"
+width      = 460
+height     = 480
+placement  = "floating"
+position   = "center"

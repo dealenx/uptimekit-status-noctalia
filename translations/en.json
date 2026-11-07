@@ -1,0 +1,11 @@
+{
+  "settings.base_url.label": "Base URL",
+  "settings.status_page_slug.label": "Status page slug",
+  "settings.status_page_slug.description": "Leave empty for the domain root; otherwise the /<slug> path of the status page URL",
+  "settings.interval_sec.label": "Refresh interval (seconds)",
+  "settings.open_url_on_click.label": "Open status page on click",
+  "settings.compact.label": "Compact text (no \"up\")",
+  "up_of": "Up {count} of {total}",
+  "offline": "UptimeKit offline",
+  "http_failed": "HTTP {status}"
+}

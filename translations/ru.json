@@ -1,0 +1,11 @@
+{
+  "settings.base_url.label": "Базовый URL",
+  "settings.status_page_slug.label": "Слаг статус-страницы",
+  "settings.status_page_slug.description": "Пусто — корень домена; иначе путь /<слаг> из URL статус-страницы",
+  "settings.interval_sec.label": "Интервал обновления, сек",
+  "settings.open_url_on_click.label": "Открывать статус-страницу по клику",
+  "settings.compact.label": "Компактный текст (без \"up\")",
+  "up_of": "Up {count} из {total}",
+  "offline": "UptimeKit offline",
+  "http_failed": "HTTP {status}"
+}
