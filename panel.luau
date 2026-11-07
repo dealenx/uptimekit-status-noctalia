@@ -14,7 +14,7 @@ noctalia.state.watch("data", function(v)
 end)
 
 local STATUS_COLOR = {
-  up = "success",
+  up = "#37c871",
   down = "error",
   degraded = "warning",
   maintenance = "warning",
@@ -53,30 +53,28 @@ function renderAll()
 
   table.insert(rows, ui.label({
     text = statusRu(data.status),
-    color = data.status == "operational" and "success"
+    color = data.status == "operational" and "#37c871"
             or (data.status == "unknown" and "on_surface_variant" or "warning"),
     fontWeight = "medium",
   }))
 
   if #data.incidents > 0 then
-    table.insert(rows, ui.label({ text = "Инциденты", color = "on_surface_variant", fontWeight = "bold", fontScale = 1.05 }))
+    table.insert(rows, ui.label({ text = "Инциденты", color = "on_surface_variant", fontWeight = "bold" }))
     for _, inc in ipairs(data.incidents) do
       local sev = inc.severity and (" · " .. statusRu(inc.severity)) or ""
       table.insert(rows, ui.label({
         text = "⚠ " .. inc.title .. " — " .. statusRu(inc.status) .. sev,
         color = "warning",
-        fontScale = 0.95,
       }))
     end
   end
 
   if #data.maintenances > 0 then
-    table.insert(rows, ui.label({ text = "Техработы", color = "on_surface_variant", fontWeight = "bold", fontScale = 1.05 }))
+    table.insert(rows, ui.label({ text = "Техработы", color = "on_surface_variant", fontWeight = "bold" }))
     for _, m in ipairs(data.maintenances) do
       table.insert(rows, ui.label({
         text = "🛠 " .. m.title .. " — " .. statusRu(m.status),
         color = "warning",
-        fontScale = 0.95,
       }))
     end
   end
@@ -99,21 +97,18 @@ function renderAll()
         text = c.group,
         color = "on_surface_variant",
         fontWeight = "bold",
-        fontScale = 1.05,
       }))
       lastGroup = c.group
     end
     table.insert(rows, ui.row({ align = "center", justify = "space_between", gap = 8 }, {
       ui.label({
         text = (c.status == "up" and "● " or "○ ") .. c.name,
-        color = c.status == "up" and "success" or "error",
+        color = c.status == "up" and "#37c871" or "error",
         flexGrow = 1,
-        fontScale = 0.95,
       }),
       ui.label({
         text = statusRu(c.status),
         color = STATUS_COLOR[c.status] or "on_surface_variant",
-        fontScale = 0.85,
       }),
     }))
   end
